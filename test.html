@@ -1,0 +1,81 @@
+<style>
+  .box {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .content {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.50);
+    position: absolute;
+    top: 0;
+    left: -250%;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: all 0.5s;
+  }
+
+  .content .heading {
+    color: #fff;
+    margin-top: auto;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .box:hover .content {
+    left: 0;
+  }
+</style>
+
+<div class="col-lg-3 col-md-6 align-self-center mb-30 consoles-sec-items col-md-6 NS">
+  <div class="item">
+    <div class="thumb">
+      <div class="box">
+        <a href="consoles.html"><img src="assets/images/Nitendo 3ds.png" alt=""></a>
+        <div class="content">
+          <h3 class="heading">Features</h3>
+          <ul class="f-list">
+            <li>Colour Range.</li>
+            <li>Three Cameras.</li>
+            <li>StreetPass.</li>
+            <li>SpotPass.</li>
+            <li>Unique Controls.</li>
+            <li>Backwards Compatible.</li>
+            <li>amiibo.</li>
+            <li>Out of the Box.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="down-content">
+      <h6>Nitendo 3Ds</h6>
+      <p class="price"><em>15,000Rs</em>12,000Rs</p>
+      <a href="consoles.html"><i class="fa fa-shopping-bag"></i></a>
+      <button class="cl" onclick="toggleFeatures(event, this)">See More</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleFeatures(event, button) {
+    event.stopPropagation(); // Prevent event propagation
+
+    var content = button.parentNode.parentNode.querySelector('.content');
+    content.style.left = content.style.left === '0' ? '-250%' : '0';
+  }
+
+  document.body.addEventListener('click', function(event) {
+    var target = event.target;
+    var content = document.querySelector('.content');
+    if (!content.contains(target)) {
+      content.style.left = '-250%';
+    }
+  });
+
+  var fList = document.querySelector('.f-list');
+  fList.addEventListener('click', function(event) {
+    event.stopPropagation(); // Prevent event propagation
+  });
+</script>
